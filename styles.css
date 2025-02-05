@@ -1,0 +1,35 @@
+body {
+    margin: 15px;
+}
+
+.navigation {
+    background-color: rgb(221, 194, 230);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: fixed; */
+    /* overflow: auto; */
+}
+
+.navigation a {
+    background-color: rgb(196, 124, 196);
+    margin: 20px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 30px;
+}
+
+.navigation a:hover {
+    background-color: rgb(170, 62, 180);
+    color: aliceblue;
+    margin: 20px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 30px;
+}
+
+#headshot {
+    float: left
+}
