@@ -1,11 +1,13 @@
-body {
+html, body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
 }
 
 main {
     padding: 30px;
     background-color: rgb(255, 237, 244);
+    min-height: 100%;
 }
 
 main p {
