@@ -2,12 +2,14 @@ html, body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
     padding: 30px;
     background-color: rgb(255, 237, 244);
-    min-height: 100%;
+    flex: 1;
 }
 
 main p {
@@ -15,26 +17,38 @@ main p {
     padding: 30px;
     background-color: rgba(255, 199, 253, 0.315);
     overflow: auto;
+    box-shadow: 3px 3px rgb(197, 170, 191);
 }
 
 header {
-    overflow: auto;
+    overflow: visible;
 }
 
 footer {
+    max-width: 100%;
+    padding: 10px;
     background-color: blueviolet;
-    /* position: fixed; */
-    /* bottom: 0; */
-    /* left: 0; */
-    /* width: 100%; */
 }
+
+/* ------------- ID STYLING RULES ---------------- */
+
+/* Index Headshot */
+#headshot {
+    float: left;
+    max-width: 400px;
+    margin-right: 30px;
+    display: block;
+    box-shadow: 10px 10px rgb(197, 170, 191);
+}
+
+/* ------------- CLASS STYLING RULES ------------- */
 
 .navigation {
     /* background-color: rgb(246, 226, 253); */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: auto;
+    overflow: visible;
     min-width: max-content;
 }
 
@@ -65,10 +79,32 @@ footer {
     text-decoration: none;
 }
 
-/* Styling rules for the index.html headshot */
-#headshot {
-    float: left;
-    max-width: 400px;
-    margin-right: 30px;
-    display: block;
+.drop {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.drop-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    
+    background-color: rgba(255, 255, 255, 0.95);
+    
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.8s ease, transform 0.4s ease;
+}
+
+.navigation .drop .drop-content a {
+    border-top: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+.drop:hover .drop-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
 }
