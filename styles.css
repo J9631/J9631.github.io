@@ -31,13 +31,26 @@ footer {
 }
 
 /* ------------- ID STYLING RULES ---------------- */
+@media only screen and (min-width:320px){
+    #headshot {
+        float: none;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        box-shadow: 10px 10px rgb(197, 170, 191);
+    }
+}
 
-#headshot {
-    float: left;
-    max-width: 400px;
-    margin-right: 30px;
-    display: block;
-    box-shadow: 10px 10px rgb(197, 170, 191);
+@media only screen and (min-width:1024px){
+    #headshot {
+        float: left;
+        max-width: 400px;
+        margin-left: 0px;
+        margin-right: 30px;
+        display: block;
+        box-shadow: 10px 10px rgb(197, 170, 191);
+    }
 }
 
 #favHeader {
@@ -111,76 +124,220 @@ footer {
 }
 
 
-.navigation {
-    /* background-color: rgb(246, 226, 253); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-    min-width: max-content;
+/* Navigation side bar styling for mobile */
+@media only screen and (min-width:320px){
+    .navigation {
+        /* background-color: rgb(246, 226, 253); */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        min-width: max-content;
+    }
+    .navigation h1 {
+        font-size: 50px;
+        color: rgb(216, 137, 255)
+    }
+    .navigation a {
+        /* background-color: rgb(230, 180, 230); */
+        margin: 10px;
+        padding: 10px;
+        padding-left: 100px;
+        padding-right: 100px;
+        font-size: 40px;
+        color:rgb(145, 145, 145);
+        text-decoration: none;
+    }
+    .navigation a:hover {
+        background-color: rgb(244, 117, 255);
+        color: aliceblue;
+        margin: 10px;
+        padding: 10px;
+        padding-left: 100px;
+        padding-right: 100px;
+        font-size: 40px;
+        text-decoration: none;
+    }
 }
 
-.navigation h1 {
-    font-size: 25px;
-    color: rgb(216, 137, 255)
+/* Navigation side bar styling for a full-screen desktop */
+@media only screen and (min-width:1024px){
+    .navigation {
+        /* background-color: rgb(246, 226, 253); */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        min-width: max-content;
+    }
+
+    .navigation h1 {
+        font-size: 25px;
+        color: rgb(216, 137, 255)
+    }
+    .navigation a {
+        /* background-color: rgb(230, 180, 230); */
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 20px;
+        color:rgb(145, 145, 145);
+        text-decoration: none;
+    }
+    .navigation a:hover {
+        background-color: rgb(244, 117, 255);
+        color: aliceblue;
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 20px;
+        text-decoration: none;
+    }
 }
 
-.navigation a {
-    /* background-color: rgb(230, 180, 230); */
-    margin: 15px;
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-size: 20px;
-    color:rgb(145, 145, 145);
-    text-decoration: none;
-}
+/* Drop menu styling for mobile */
+@media only screen and (min-width: 320px){
+        /* Drop menu header and parent for all drop menu content */
+    .drop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-.navigation a:hover {
-    background-color: rgb(244, 117, 255);
-    color: aliceblue;
-    margin: 15px;
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-size: 20px;
-    text-decoration: none;
-}
+    /* Hides the "about" trigger for the drop menu */
+    .drop a {
+        font-size: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+    .drop a:hover{
+        font-size: 0px;
+        color:rgb(145, 145, 145);
+        background-color: white;
+        text-decoration: none;
+    }
 
-    /* Drop menu header and parent for all drop menu content */
-.drop {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
+    .drop-content {
+        /* font-size: 20px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* color:rgb(145, 145, 145);
+        background-color: rgb(255, 255, 255); */
+    }
 
-    /* Navigation drop menu content */
-.drop-content {
-    display: flex;
-    flex-direction: column;
-    
-    
-    position: absolute;
-    top: 100%; /*Set's the elements below the header*/
-    
-    background-color: rgba(255, 255, 255, 0.95);
-    
-    /* Necessary for drop-down to "animate" by sliding from above out of view and becoming transparent, NOTE: "Display: none" does not work here! */
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: opacity 0.8s ease, transform 0.4s ease;
-}
+    .drop .drop-content a {
+        font-size: 40px;
+        color:rgb(145, 145, 145);
+        background-color: rgb(255, 255, 255);
+        margin: 10px;
+        padding: 10px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .navigation .drop .drop-content a:hover{
+        background-color: rgb(244, 117, 255);
+        color: aliceblue;
+        font-size: 40px;
+        text-decoration: none;
+        margin: 10px;
+        padding: 10px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 
     /* Adds a small border between the dropdown menu options for easy distinction */
-.navigation .drop .drop-content a {
-    border-top: 1px solid rgba(0, 0, 0, 0.199);
+    .navigation .drop .drop-content a {
+        border-top: none;
+    }
 }
 
+/* Drop menu styling for a full-screen Desktop */
+@media only screen and (min-width:1024px){
+    /* Drop menu header and parent for all drop menu content */
+    .drop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .drop a {
+        font-size: 20px;
+        color:rgb(145, 145, 145);
+        background-color: white;
+        text-decoration: none;
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .drop a:hover {
+        font-size: 20px;
+        background-color: rgb(244, 117, 255);
+        color: aliceblue;
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .drop-content {
+        display: flex;
+        flex-direction: column;
+        
+        
+        position: absolute;
+        top: 100%; /*Set's the elements below the header*/
+        
+        background-color: rgba(255, 255, 255, 0.95);
+        
+        /* Necessary for drop-down to "animate" by sliding from above out of view and becoming transparent, NOTE: "Display: none" does not work here! */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: opacity 0.8s ease, transform 0.4s ease;
+    }
+
     /* On hover of the "drop" element, reveal the menu (animated by transition), stays revealed while cursor is on either, as drop is it's parent */
-.drop:hover .drop-content {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0px);
+    .drop:hover .drop-content {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    /* Adds a small border between the dropdown menu options for easy distinction */
+    .navigation .drop .drop-content a {
+        border-top: 1px solid rgba(0, 0, 0, 0.199);
+    }
+
+    .drop .drop-content a {
+        font-size: 20px;
+        color:rgb(145, 145, 145);
+        background-color: rgb(255, 255, 255);
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .navigation .drop .drop-content a:hover{
+        background-color: rgb(244, 117, 255);
+        color: aliceblue;
+        font-size: 20px;
+        text-decoration: none;
+        margin: 15px;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 }
+
