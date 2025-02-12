@@ -41,7 +41,30 @@ footer {
     box-shadow: 10px 10px rgb(197, 170, 191);
 }
 
+#FavHeader {
+    font-size: 50px;
+    color: rgb(186, 64, 247);
+    text-align: center;
+}
+
 /* ------------- CLASS STYLING RULES ------------- */
+
+.favWrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 100px;
+}
+
+.favIcons {
+    max-width: 200px;
+    max-height: 200px;
+    margin-right: 30px;
+}
+
+.favWrapper p {
+    flex: 1;
+}
+
 
 .navigation {
     /* background-color: rgb(246, 226, 253); */
