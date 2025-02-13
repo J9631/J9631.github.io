@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- 
+Jacob Sanchez
+2/12/2025
+CS-382
+Personal website contact page, contains my contact information
+-->
+
 <html>
     <head>
         <title>Contact</title>
@@ -6,6 +13,7 @@
     </head>
 
     <body>
+        <!-- Header: Navigation menu and about-me drop down -->
         <header>
             <div class="navigation">
                 <h1>Jacob Sanchez: </h1>
@@ -19,17 +27,17 @@
                     </div>
                 </div>
                 <a href="contact.html"> Contact </a>
+                <a id="toggleBut">Toggle Theme</a>
             </div>
         </header>
 
         <main>
-
+            <!-- Contact Information: -->
             <div>
                 <p> 
                     If you need to contact me for any reason feel free to do so through one of the means listed below: <br>
                 </p>
             </div>
-
             <div id="contactInfo">
                 <div>
                     <h3>Contact Information:</h3>
@@ -44,6 +52,13 @@
         </main>
 
         <footer> Last Updated: Spring 2025 </footer>
+
+        <!-- Simple javascript to toggle between dark and light themes, style implemented in styles.css -->
+        <script>
+            document.getElementById("toggleBut").onclick = function(){
+             document.getElementsByTagName("body")[0].classList.toggle("dark");
+            };
+        </script>
     </body>
 
 

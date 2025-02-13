@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- 
+Jacob Sanchez
+2/12/2025
+CS-382
+Personal website hobby page contains:
+- Brief descriptions of my hobbies (artistic).
+-->
 <html>
     <head>
         <title>Hobby</title>
@@ -20,10 +27,10 @@
                     </div>
                 </div>
                 <a href="contact.html"> Contact </a>
+                <a id="toggleBut">Toggle Theme</a>
             </div>
         </header>
 
-        <!-- Main Page Content -->
         <main>
 
             <!-- Krita Section -->
@@ -53,8 +60,14 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer> Last Updated: Spring 2025 </footer>
+
+        <!-- Simple javascript to toggle between dark and light themes, style implemented in styles.css -->
+        <script>
+            document.getElementById("toggleBut").onclick = function(){
+             document.getElementsByTagName("body")[0].classList.toggle("dark");
+            };
+        </script>
     </body>
 
 

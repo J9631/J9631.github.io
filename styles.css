@@ -1,3 +1,11 @@
+/*
+Jacob Sanchez
+2/12/2025
+CS-382
+CSS Styling rules for Personal Website:
+- Responsive styling switches layout to a vertical scroll for mobile users.
+ */
+
 html, body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -31,6 +39,8 @@ footer {
 }
 
 /* ------------- ID STYLING RULES ---------------- */
+
+/* Mobile styling rules for index's headshot, arranged vertically */
 @media only screen and (min-width:320px){
     #headshot {
         float: none;
@@ -42,6 +52,7 @@ footer {
     }
 }
 
+/* Desktop styling rules for index's headshot, arranges side-by-side with text */
 @media only screen and (min-width:1024px){
     #headshot {
         float: left;
@@ -96,38 +107,81 @@ footer {
 
 /* ------------- CLASS STYLING RULES ------------- */
 
-.miniWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+/* Mobile styling rules for the miniature pictures. Arranges vertically. */
+@media only screen and (min-width:320px){
+    .miniWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .miniPics {
+        max-width: 300px;
+        margin: 5px;
+    }
+
 }
 
-.miniPics {
-    max-width: 400px;
-    margin: 5px;
+/* Desktop styling rules for the miniature pictures. Arranges side-by-side as a sort of 'mini-gallery'. */
+@media only screen and (min-width:1024px){
+    .miniWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .miniPics {
+        max-width: 300px;
+        margin: 5px;
+    }
 }
 
-.favWrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 100px;
+/* Mobile styling rules for the favorite icons on the CS hobby page. Arranges vertically. */
+@media only screen and (min-width:320px){
+    .favWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 100px;
+    }
+
+    .favIcons {
+        max-width: 200px;
+        max-height: 200px;
+        margin-right: 30px;
+    }
+
+    .favWrapper p {
+        flex: 1;
+    }
 }
 
-.favIcons {
-    max-width: 200px;
-    max-height: 200px;
-    margin-right: 30px;
-}
+/* Desktop styling rules for the favorite icons on the CS hobby page. Arranges horizontally, side-by-side with text. */
+@media only screen and (min-width:1024px){
+    .favWrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 100px;
+    }
 
-.favWrapper p {
-    flex: 1;
+    .favIcons {
+        max-width: 200px;
+        max-height: 200px;
+        margin-right: 30px;
+    }
+
+    /* Extends paragraph to fill remaining screen space */
+    .favWrapper p {
+        flex: 1;
+    }
 }
 
 
 /* Navigation side bar styling for mobile */
 @media only screen and (min-width:320px){
     .navigation {
-        /* background-color: rgb(246, 226, 253); */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -140,7 +194,6 @@ footer {
         color: rgb(216, 137, 255)
     }
     .navigation a {
-        /* background-color: rgb(230, 180, 230); */
         margin: 10px;
         padding: 10px;
         padding-left: 100px;
@@ -164,7 +217,6 @@ footer {
 /* Navigation side bar styling for a full-screen desktop */
 @media only screen and (min-width:1024px){
     .navigation {
-        /* background-color: rgb(246, 226, 253); */
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -178,7 +230,6 @@ footer {
         color: rgb(216, 137, 255)
     }
     .navigation a {
-        /* background-color: rgb(230, 180, 230); */
         margin: 15px;
         padding: 10px;
         padding-left: 25px;
@@ -199,7 +250,7 @@ footer {
     }
 }
 
-/* Drop menu styling for mobile */
+/* Drop menu styling for mobile. Gets rid of drop menu entirely as mobile can't hover. */
 @media only screen and (min-width: 320px){
         /* Drop menu header and parent for all drop menu content */
     .drop {
@@ -223,13 +274,10 @@ footer {
     }
 
     .drop-content {
-        /* font-size: 20px; */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* color:rgb(145, 145, 145);
-        background-color: rgb(255, 255, 255); */
     }
 
     .drop .drop-content a {
@@ -341,3 +389,33 @@ footer {
     }
 }
 
+/* General styling rules for the dark theme: */
+.dark {
+    background-color: black;
+}
+
+.dark main {
+    background-color: rgb(71, 0, 62);
+}
+
+.dark p {
+    color: white;
+}
+
+.dark .navigation a {
+    color: white;
+}
+
+.dark .navigation .drop a {
+    background-color: black;
+    color: white;
+}
+
+.dark .drop-content {
+    background-color: black;
+    color: white;
+}
+
+.dark #contactInfo h3 {
+    color: white;
+}
