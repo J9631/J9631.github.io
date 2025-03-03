@@ -9,6 +9,9 @@ Individual Assignment: Simple Multiplayer Game
 -   Board on the html end is just a 2D table of pngs that are switched betwen being blank, red, or blue to represent
     the current board state.
 
+USE BELOW LINK TO ACCESS THIS IN YOUR BROWSER:
+https://j9631.github.io/
+
 REFERENCES I USED TO CREATE THIS WEBSITE AND GAME:
 https://stackoverflow.com/questions/64409167/in-javascript-is-there-an-easy-way-to-get-the-table-element-from-one-of-the-row
 https://www.tutorialspoint.com/how-to-access-tr-element-from-table-using-javascript
