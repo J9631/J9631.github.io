@@ -1,0 +1,165 @@
+/*
+    Jacob Sanchez
+    3/2/2025
+    CS-382
+    CSS Styling rules for simple JS implementation of Connect 4:
+    - No responsive styling currently.
+    - No CSS animations here either, that's done entirely with js
+        *CSS animations turn out buggy when coords need to be updated.
+ */
+
+html, body {
+    margin: 0;
+}
+
+/* Arranges page containers (header, main, and footer) vertically. */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgb(255, 123, 46);
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    color: white;
+}
+
+footer {
+    max-width: 100%;
+    padding: 3px;
+    background-color: blueviolet;
+}
+
+/* Arranges the sidebar and game board horizontally with each other in the middle of the screen */
+#GameScreen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The game's sidebar where all button and gameplay functionality is implemented.
+   Arranged as a vertical sidepanel.
+*/
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 20px;
+    margin-right: 60px;
+    max-width: 500px;
+    background-color: rgb(126, 255, 255);
+    border-radius: 40px;
+}
+
+#GameBoard{
+    background-color: rgb(147, 185, 255);
+}
+
+/* Pads out the slots on the gameboard, separate from img as to not interfere with animation coords */
+#GameBoard td {
+    padding-left: 5px;
+    padding-left: 5px;
+}
+
+/*  The gameboard is just a bunch of blank tokens the script edits. 
+    Thus it's size is controlled purely by the size of it's img which is set here.
+*/
+#GameBoard img {
+    max-width: 85px;
+}
+
+#PlaceTokenBar {
+    background-color: rgb(98, 250, 98);
+    margin-bottom: 20px;
+}
+
+/* Pads out the drag zones on the gamebar, separate from img as to not interfere with animation coords */
+#PlaceTokenBar td {
+    padding-left: 5px;
+    padding-left: 5px;
+}
+
+#PlaceTokenBar img {
+    max-width: 85px;
+}
+
+/* Arranges the scorebox horizontally to display respective player's scores for multi-round games. */
+#ScoreBox {
+    display: flex;
+    flex-direction: row;
+}
+
+#ScoreBox p {
+    padding: 10px;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 25px;
+    background-color: white;
+}
+
+#RedScore {
+    color: red;
+    text-align: center;
+    padding: auto;
+    flex: 1;
+}
+
+#BlueScore {
+    color: blue;
+    text-align: center;
+    padding: auto;
+    flex: 1;
+}
+
+#TurnDisplay {
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#TurnText {
+    color: red;
+}
+
+/* Container for the draggable token in the game side bar. */
+#DragTokenBox {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 25px;
+    max-width: 200px;
+}
+
+/* Ensures the draggable token png is fit to it's container. */
+#DragToken {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Makes the buttons a little less ugly. And gives a basic animation for color change when hovered. */
+button {
+    background-color: white;    
+    text-decoration: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background-color 1s;
+}
+
+/* Basic animation for color change when hovered for the two different reset buttons. */
+#RestartGame:hover {
+    background-color: rgba(255, 0, 0);
+}
+#RestartRound:hover {
+    background-color: rgba(255, 255, 0);
+}

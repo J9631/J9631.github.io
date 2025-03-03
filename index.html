@@ -1,64 +1,130 @@
 <!DOCTYPE html>
 <!-- 
-Jacob Sanchez
-2/12/2025
-CS-382
-Personal website home page, contains:
-- Brief Bio
-- Headshot
+    Jacob Sanchez
+    3/2/2025
+    CS-382
+    Simple HTML + JS implementation of a connect 4 game:
+    - Basic multiplayer functionality for "local" co-op.
+    - Can be played in rounds indefinitely or reset game entirely.
+
+    Game works with basic click and drag functionality:
+    - Click to reset round, game, and continue after a victory.
+    - Drag tokens to the selected column to place them to play.
 -->
 
 <html>
     <head>
-        <title>Home</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>Connect Four</title>
+        <script src="game.js" type="text/JavaScript"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <!-- Header: Navigation menu and about-me drop down -->
+        <!-- Simple header: Just the title for now.  -->
         <header>
-            <div class="navigation">
-                <h1>Jacob Sanchez: </h1>
-                <a href="index.html"> Home </a>
-                <div class="drop">
-                    <a> About </a>
-                    <div class="drop-content">
-                        <a href="csfav.html"> CS </a>
-                        <a href="hobby.html"> Hobbies </a>
-                        <a href="miscInterests.html"> Interests </a>
-                    </div>
-                </div>
-                <a href="contact.html"> Contact </a>
-                <a id="toggleBut">Toggle Theme</a>
-            </div>
+            <h1> Simple Web Connect Four -- Jacob Sanchez </h1>
         </header>
 
+        <!-- The actual game screen and buttons -->
         <main>
-            <!-- Headshot with brief bio -->
-            <div>
-                <img id="headshot" src="media/Headshot.jpg">
+            <div id="GameScreen">
+                <!-- Game sidebar for tokens, game data, and other stuff -->
+                <div id="sidebar">
+                    <div id="TurnDisplay">
+                        <p><b> PLAYER TURN: </b></p>
+                        <p id="TurnText"> Currently it is Red's turn </p>
+                    </div>
+                    <div id="DragTokenBox">
+                        <p> Drag the below token to the corresponding column in the green place bar to play. </p>
+                        <img draggable="true" id="DragToken" src="media/RedToken.png">
+                    </div>
+                    <div id="ScoreBox">
+                        <p> Score: </p><p id="RedScore"> 0 </p><p id="BlueScore"> 0 </p>
+                    </div>
+                    <button id="RestartRound" type="button" onclick="restartGame(false)"> Restart Round </button>
+                    <button id="RestartGame" type="button" onclick="restartGame(true)"> Restart Game </button>
+                </div>
 
-                <p> 
-                    Hello! <br>
-                    <br>
-                    My name is Jacob Sanchez, I'm an NMSU student in my fourth year of college studying for a bachelors of science in
-                    computer science.<br>
-                    <br>
-                    My primary interests are software development of any kind, system administration, and database management. <br>
-                    I also have a passing interest in game development which I do for fun.
-                </p>
+                <!-- Connect Four Board itself 7 x 6 Area-->
+                <div>
+                    <table id="PlaceTokenBar">
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(0)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(1)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(2)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(3)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(4)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(5)" src="media/BlankToken.png"></td>
+                        <td><img class="dropZone" draggable="false" ondragover="allowDrop(event)" ondrop="placeToken(6)" src="media/BlankToken.png"></td>
+                    </table>
+                    <table id="GameBoard">
+                        <!-- Bottom Row - One -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                        <!-- Row Two -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                        <!-- Row Three -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                        <!-- Row Four -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                        <!-- Row Five -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                        <!-- Row Six -->
+                        <tr>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                            <td><img draggable="false" src="media/BlankToken.png"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </main>
 
-        <footer> Last Updated: Spring 2025 </footer>
-
-        <!-- Simple javascript to toggle between dark and light themes, style implemented in styles.css -->
-        <script>
-            document.getElementById("toggleBut").onclick = function(){
-             document.getElementsByTagName("body")[0].classList.toggle("dark");
-            };
-        </script>
+        <!-- Simpe footer: Just displays last update for now. -->
+        <footer>
+            <p> Last updated spring 2025. </p>
+        </footer>
     </body>
-
-
 </html>
